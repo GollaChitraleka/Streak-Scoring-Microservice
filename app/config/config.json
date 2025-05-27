@@ -1,0 +1,71 @@
+{
+    "version": "1.0.0",
+    "streak": {
+        "tiers": {
+            "none": {
+                "name": "none",
+                "threshold": 0,
+                "description": "No tier achieved yet"
+            },
+            "bronze": {
+                "name": "bronze",
+                "threshold": 3,
+                "description": "Bronze tier achieved"
+            },
+            "silver": {
+                "name": "silver",
+                "threshold": 7,
+                "description": "Silver tier achieved"
+            },
+            "gold": {
+                "name": "gold",
+                "threshold": 14,
+                "description": "Gold tier achieved"
+            }
+        },
+        "grace_period_days": 1,
+        "reset_after_days": 2
+    },
+    "action_types": {
+        "login": {
+            "enabled": true,
+            "validation": {
+                "require_ai": false,
+                "threshold": null
+            }
+        },
+        "quiz": {
+            "enabled": true,
+            "validation": {
+                "require_ai": true,
+                "threshold": {
+                    "min_score": 5,
+                    "max_time_sec": 600
+                }
+            }
+        },
+        "help_post": {
+            "enabled": true,
+            "validation": {
+                "require_ai": true,
+                "threshold": {
+                    "min_word_count": 30,
+                    "min_confidence": 0.6
+                }
+            }
+        }
+    },
+    "ai_models": {
+        "help_post": {
+            "model_file": "app/models/help_post_classifier.pkl",
+            "vectorizer_file": "app/models/tfidf_vectorizer.pkl",
+            "scaler_file": "app/models/feature_scaler.pkl",
+            "threshold": 0.6
+        }
+    },
+    "persistence": {
+        "enabled": true,
+        "type": "file",
+        "file_path": "data/streaks.json"
+    }
+}

@@ -1,0 +1,84 @@
+[
+    {
+        "description": "Simple login action",
+        "request": {
+            "user_id": "stu_2025",
+            "date_utc": "2024-07-05T15:10:00Z",
+            "actions": [
+                {
+                    "type": "login",
+                    "metadata": {}
+                }
+            ]
+        },
+        "expected_response": {
+            "user_id": "stu_2025",
+            "streaks": {
+                "login": {
+                    "current_streak": 1,
+                    "status": "active",
+                    "tier": "none",
+                    "next_deadline_utc": "2024-07-06T23:59:59Z"
+                }
+            }
+        }
+    },
+    {
+        "description": "Valid quiz action",
+        "request": {
+            "user_id": "stu_2025",
+            "date_utc": "2024-07-05T15:10:00Z",
+            "actions": [
+                {
+                    "type": "quiz",
+                    "metadata": {
+                        "quiz_id": "quiz_8372",
+                        "score": 7,
+                        "time_taken_sec": 310
+                    }
+                }
+            ]
+        },
+        "expected_response": {
+            "user_id": "stu_2025",
+            "streaks": {
+                "quiz": {
+                    "current_streak": 1,
+                    "status": "active",
+                    "tier": "none",
+                    "validated": true,
+                    "next_deadline_utc": "2024-07-06T23:59:59Z"
+                }
+            }
+        }
+    },
+    {
+        "description": "Invalid quiz score",
+        "request": {
+            "user_id": "stu_2025",
+            "date_utc": "2024-07-05T15:10:00Z",
+            "actions": [
+                {
+                    "type": "quiz",
+                    "metadata": {
+                        "quiz_id": "quiz_123",
+                        "score": 3,
+                        "time_taken_sec": 400
+                    }
+                }
+            ]
+        },
+        "expected_response": {
+            "user_id": "stu_2025",
+            "streaks": {
+                "quiz": {
+                    "current_streak": 0,
+                    "status": "inactive",
+                    "tier": "none",
+                    "validated": false,
+                    "rejection_reason": "Score below threshold"
+                }
+            }
+        }
+    }
+]

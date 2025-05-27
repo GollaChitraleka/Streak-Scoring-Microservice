@@ -1,0 +1,3002 @@
+[
+  {
+    "content": "do it in c or python whatever write code for sorting idk how",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 60,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 64,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how help me with this question",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google help me with this question",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 63,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "i dont know try google lol this quiz is weird",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix just search it bro",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 80,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 73,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast this is not working plz fix",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 73,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever help me with this question",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 54,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 83,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever do it in c or python whatever",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix write code for sorting idk how",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42 help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 57,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 95,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro use quicksort its fast",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird lol this quiz is weird",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 57,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question whats the difference between heap and stack??",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 69,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 98,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 74,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 58,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 73,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird just search it bro",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 101,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix help me with this question",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 68,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how just search it bro",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "i dont know try google lol this quiz is weird",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google just search it bro",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42 just search it bro",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 110,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 98,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 73,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 95,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google write code for sorting idk how",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast use quicksort its fast",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 63,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast the answer is 42",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 63,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 110,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question whats the difference between heap and stack??",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast write code for sorting idk how",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? help me with this question",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 95,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 60,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever this is not working plz fix",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? help me with this question",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? this is not working plz fix",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever i dont know try google",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 101,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42 whats the difference between heap and stack??",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird write code for sorting idk how",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 81,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever write code for sorting idk how",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 58,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 72,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro write code for sorting idk how",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 85,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird the answer is 42",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question do it in c or python whatever",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 59,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 73,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how use quicksort its fast",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question the answer is 42",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? this is not working plz fix",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever use quicksort its fast",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 83,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 50,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix this is not working plz fix",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 74,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42 use quicksort its fast",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix help me with this question",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird this is not working plz fix",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 84,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 59,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever whats the difference between heap and stack??",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 69,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how i dont know try google",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast whats the difference between heap and stack??",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 86,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question whats the difference between heap and stack??",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast the answer is 42",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird just search it bro",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? lol this quiz is weird",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 50,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 57,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast do it in c or python whatever",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix write code for sorting idk how",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question i dont know try google",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 68,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 110,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question do it in c or python whatever",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question lol this quiz is weird",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42 write code for sorting idk how",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? i dont know try google",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 89,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how do it in c or python whatever",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 110,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? whats the difference between heap and stack??",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 52,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 84,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 86,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro write code for sorting idk how",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast do it in c or python whatever",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever whats the difference between heap and stack??",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question this is not working plz fix",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 68,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast i dont know try google",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 110,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 98,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 68,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? just search it bro",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 52,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix help me with this question",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever the answer is 42",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever help me with this question",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 63,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 57,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever this is not working plz fix",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question i dont know try google",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro write code for sorting idk how",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 65,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 74,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42 use quicksort its fast",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 88,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? i dont know try google",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question lol this quiz is weird",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast write code for sorting idk how",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 85,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "use quicksort its fast just search it bro",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 61,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 58,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 65,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how this is not working plz fix",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 59,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 84,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix do it in c or python whatever",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 122,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 95,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever whats the difference between heap and stack??",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 74,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever this is not working plz fix",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question whats the difference between heap and stack??",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix use quicksort its fast",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 64,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro just search it bro",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 47,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro use quicksort its fast",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 89,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 81,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 95,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42 help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how the answer is 42",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 69,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 51,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? just search it bro",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 84,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 59,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 74,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro i dont know try google",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix lol this quiz is weird",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 88,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro do it in c or python whatever",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 89,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 122,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix write code for sorting idk how",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird do it in c or python whatever",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "whats the difference between heap and stack??",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "write code for sorting idk how",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix this is not working plz fix",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever do it in c or python whatever",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42 help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird this is not working plz fix",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? lol this quiz is weird",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix i dont know try google",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 84,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 67,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 64,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google help me with this question",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "help me with this question",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 72,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever whats the difference between heap and stack??",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 76,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro i dont know try google",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "i dont know try google",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question do it in c or python whatever",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "In HTML, the `<section>` tag is used to define sections in a document. It helps improve semantic structure and accessibility.",
+    "word_count": 20,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix lol this quiz is weird",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? i dont know try google",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 52,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 65,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42 the answer is 42",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 110,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n``` I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 89,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 84,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked. The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 74,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google just search it bro",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "The main difference between BFS and DFS lies in the way they explore nodes. BFS uses a queue and explores neighbors first, while DFS uses a stack (or recursion) and goes deep before backtracking.",
+    "word_count": 34,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "the answer is 42 just search it bro",
+    "word_count": 8,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "just search it bro",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix do it in c or python whatever",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable.",
+    "word_count": 23,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "lol this quiz is weird",
+    "word_count": 5,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 27,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "use quicksort its fast do it in c or python whatever",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix do it in c or python whatever",
+    "word_count": 13,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Here's a clean approach to implement quicksort:\n```python\ndef quicksort(arr):\n    if len(arr) <= 1:\n        return arr\n    pivot = arr[len(arr) // 2]\n    left = [x for x in arr if x < pivot]\n    middle = [x for x in arr if x == pivot]\n    right = [x for x in arr if x > pivot]\n    return quicksort(left) + middle + quicksort(right)\n```",
+    "word_count": 61,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "i dont know try google this is not working plz fix",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time.",
+    "word_count": 25,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "this is not working plz fix the answer is 42",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever i dont know try google",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "I was getting an 'index out of range' error because I forgot to account for the base case in recursion. Once I added a condition to return when the index is equal to the length of the array, it worked.",
+    "word_count": 40,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever lol this quiz is weird",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever",
+    "word_count": 7,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever the answer is 42",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "do it in c or python whatever do it in c or python whatever",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever just search it bro",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "whats the difference between heap and stack?? lol this quiz is weird",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "do it in c or python whatever do it in c or python whatever",
+    "word_count": 14,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question use quicksort its fast",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "the answer is 42",
+    "word_count": 4,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how just search it bro",
+    "word_count": 10,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "When using dynamic programming, always identify the overlapping subproblems and optimal substructure. For example, in the Fibonacci series, store the results of previous calculations.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird this is not working plz fix",
+    "word_count": 11,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "The time complexity of merge sort is O(n log n) because the array is divided into halves recursively and each merge operation takes linear time. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 52,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "help me with this question use quicksort its fast",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "just search it bro help me with this question",
+    "word_count": 9,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 54,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To debug a null pointer exception in Java, start by checking all objects being dereferenced. Add null checks or use Optional if applicable. You can use binary search to find the square root of a number with precision. Start with low=0, high=num, and update mid based on comparison with mid*mid.",
+    "word_count": 50,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "lol this quiz is weird whats the difference between heap and stack??",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "write code for sorting idk how this is not working plz fix",
+    "word_count": 12,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "this is not working plz fix",
+    "word_count": 6,
+    "contains_code": false,
+    "label": "invalid"
+  },
+  {
+    "content": "Dijkstra\u2019s algorithm finds the shortest path from a source node to all others using a priority queue. It works only with non-negative edge weights.",
+    "word_count": 24,
+    "contains_code": false,
+    "label": "valid"
+  },
+  {
+    "content": "To reverse a linked list, you need to iterate through it while keeping track of the previous node. Here's a basic Python implementation:\n```python\ndef reverse_linked_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev\n```",
+    "word_count": 49,
+    "contains_code": true,
+    "label": "valid"
+  }
+]

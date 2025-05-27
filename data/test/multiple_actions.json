@@ -1,0 +1,56 @@
+[
+    {
+        "description": "Multiple actions in single request",
+        "request": {
+            "user_id": "stu_2025",
+            "date_utc": "2024-07-05T15:10:00Z",
+            "actions": [
+                {
+                    "type": "login",
+                    "metadata": {}
+                },
+                {
+                    "type": "quiz",
+                    "metadata": {
+                        "quiz_id": "quiz_8372",
+                        "score": 7,
+                        "time_taken_sec": 310
+                    }
+                },
+                {
+                    "type": "help_post",
+                    "metadata": {
+                        "content": "Here's how binary search works...",
+                        "word_count": 78,
+                        "contains_code": true
+                    }
+                }
+            ]
+        },
+        "expected_response": {
+            "user_id": "stu_2025",
+            "streaks": {
+                "login": {
+                    "current_streak": 1,
+                    "status": "active",
+                    "tier": "none",
+                    "next_deadline_utc": "2024-07-06T23:59:59Z"
+                },
+                "quiz": {
+                    "current_streak": 1,
+                    "status": "active",
+                    "tier": "none",
+                    "validated": true,
+                    "next_deadline_utc": "2024-07-06T23:59:59Z"
+                },
+                "help_post": {
+                    "current_streak": 1,
+                    "status": "active",
+                    "tier": "none",
+                    "validated": true,
+                    "next_deadline_utc": "2024-07-06T23:59:59Z"
+                }
+            }
+        }
+    }
+]
