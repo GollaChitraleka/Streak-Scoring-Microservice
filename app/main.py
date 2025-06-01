@@ -4,7 +4,6 @@ from app.schemas.requests import StreakUpdateRequest
 from app.schemas.responses import StreakUpdateResponse
 from app.services.streak_service import StreakService
 import logging
-import os
 from pathlib import Path
 
 from app.services.validators import ActionValidator

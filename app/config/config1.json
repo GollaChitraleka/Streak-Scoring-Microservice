@@ -57,9 +57,9 @@
     },
     "ai_models": {
         "help_post": {
-            "model_file": "help_post_classifier.pkl",
-            "vectorizer_file": "tfidf_vectorizer.pkl",
-            "scaler_file": "feature_extractor.pkl",
+            "model_file": "app/models/help_post_classifier.pkl",
+            "vectorizer_file": "app/models/tfidf_vectorizer.pkl",
+            "scaler_file": "app/models/feature_scaler.pkl",
             "threshold": 0.6
         }
     },

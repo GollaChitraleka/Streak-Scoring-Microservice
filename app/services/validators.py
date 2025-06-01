@@ -1,366 +1,389 @@
-from typing import Dict, Any, Tuple, Optional
 import logging
-import joblib
 import numpy as np
+from typing import Dict, Any, Tuple, Optional
 from pathlib import Path
-from scipy.sparse import hstack
+import joblib
+import pandas as pd
+import re
+from datetime import datetime
+from app.feature_estimator import FeatureExtractor
+import pickle
 from collections import Counter
-from app.core.config_loader import AppConfig
 
+# Configure logging
 logger = logging.getLogger(__name__)
 
-class ActionValidator:
-    """Validates user actions based on configured rules with enhanced help post validation"""
+class CustomUnpickler(pickle.Unpickler):
+    def find_class(self, module, name):
+        if module == "__main__" and name == "FeatureExtractor":
+            return FeatureExtractor
+        return super().find_class(module, name)
 
-    def __init__(self, config: AppConfig):
-        self.config = config
-        self.models = self._load_models()
+def custom_load(file_path):
+    with open(file_path, 'rb') as f:
+        return CustomUnpickler(f).load()
 
-        # Thresholds
-        try:
-            help_post_config = self.config.action_types["help_post"]
-            validation_config = help_post_config.validation
-            threshold_config = validation_config.threshold if hasattr(validation_config, 'threshold') else {}
+class EnhancedStudentContentValidator:
+    def preprocess_text(self, text):
+        """Preprocess text for model input."""
+        if pd.isna(text) or not text.strip():
+            return ""
+        text = str(text).lower()
+        text = re.sub(r'\s+', ' ', text).strip()
+        text = re.sub(r'[^\w\s.,!?;:()-]', ' ', text).strip()
+        return text
 
-            if hasattr(threshold_config, 'get'):
-                self.word_count_threshold = threshold_config.get("min_word_count", 10)
-                self.min_confidence = threshold_config.get("min_confidence", 0.5)
-            else:
-                self.word_count_threshold = getattr(threshold_config, "min_word_count", 10)
-                self.min_confidence = getattr(threshold_config, "min_confidence", 0.5)
-        except (KeyError, AttributeError) as e:
-            logger.warning(f"Could not load config thresholds, using defaults: {e}")
-            self.word_count_threshold = 10
-            self.min_confidence = 0.5
-
-        self.repetition_threshold = 0.3
-
-    def _load_models(self):
-        models = {}
-        try:
-            if self.config.action_types["help_post"].validation.require_ai:
-                app_dir = Path(__file__).resolve().parent.parent
-                model_path = app_dir / "models" / "help_post_classifier.pkl"
-                vectorizer_path = app_dir / "models" / "tfidf_vectorizer.pkl"
-                scaler_path = app_dir / "models" / "feature_scaler.pkl"
-
-                if model_path.exists() and vectorizer_path.exists() and scaler_path.exists():
-                    models["classifier"] = joblib.load(model_path)
-                    models["vectorizer"] = joblib.load(vectorizer_path)
-                    models["scaler"] = joblib.load(scaler_path)
-                    logger.info("✓ Help post AI models loaded successfully")
-                else:
-                    logger.warning("⚠ Missing one or more AI model files")
-        except Exception as e:
-            logger.exception("✗ Failed to load models")
-        return models
-
-    def _detect_repetition(self, content: str) -> bool:
-        """
-        Detect if content contains excessive repetition (from original HelpPostValidator)
-    
-        Args:
-            content: Text content to analyze
-        
-        Returns:
-            True if content is repetitive, False otherwise
-        """
-        words = content.lower().split()
-        if len(words) < 5:
+    def detect_binary_search_misconception(self, content):
+        """Detect binary search misconceptions."""
+        content = content.lower()
+        if 'binary' not in content or 'search' not in content:
             return False
-    
-        # Check for single character/emoji spam first
-        if len(set(content.replace(' ', ''))) <= 2:  # Only 1-2 unique characters
-            return True
-        
-        # Count word frequencies
-        word_counts = Counter(words)
-        total_words = len(words)
-        unique_words = len(word_counts)
-    
-        # Check for excessive word repetition
-        max_word_freq = max(word_counts.values())
-        repetition_ratio = max_word_freq / total_words
-    
-        if repetition_ratio > self.repetition_threshold:
-            return True
-    
-        # Check for low vocabulary diversity (keyword stuffing)
-        vocabulary_ratio = unique_words / total_words
-        if vocabulary_ratio < 0.5:  # Less than 50% unique words
-            return True
-    
-        # Check for repeated phrases (2-3 word combinations)
-        phrases = []
-        for i in range(len(words) - 1):
-            phrases.append(' '.join(words[i:i+2]))
-        for i in range(len(words) - 2):
-            phrases.append(' '.join(words[i:i+3]))
-        
-        if phrases:
-            phrase_counts = Counter(phrases)
-            unique_phrases = len(phrase_counts)
-            total_phrases = len(phrases)
-        
-            # FIXED: Calculate repetition as 1 - (unique phrases / total phrases)
-            phrase_repetition_ratio = 1 - (unique_phrases / total_phrases)
-        
-            return phrase_repetition_ratio > self.repetition_threshold
-    
+        misconception_patterns = [
+            r'search.*files.*folder.*one\s+by\s+one',
+            r'check.*from.*beginning.*to.*end',
+            r'go.*through.*each.*file',
+            r'look.*at.*every.*item',
+            r'start.*from.*beginning',
+            r'search.*one\s+by\s+one',
+            r'check.*every.*element',
+            r'examine.*each.*one',
+            r'linear.*search.*but.*call.*binary',
+            r'sequential.*search.*binary'
+        ]
+        for pattern in misconception_patterns:
+            if re.search(pattern, content):
+                return True
+        if 'binary search' in content:
+            linear_indicators = [
+                'one by one', 'beginning to end', 'check every', 'each file',
+                'all files', 'every element', 'sequential', 'in order'
+            ]
+            linear_count = sum(1 for indicator in linear_indicators if indicator in content)
+            if linear_count >= 2:
+                return True
         return False
 
-    def _extract_features(self, text: str, metadata: Dict[str, Any]) -> np.ndarray:
-        """Extract features exactly matching the training code (16 features)"""
-        words = text.split()
-        word_count = metadata.get("word_count", len(words))
-
-        # Vague and informal phrases (same as training)
-        vague_phrases = ['i dont know', 'idk', 'just google', 'not sure', 'maybe', 'i think', 'probably']
-        informal_words = ['lol', 'omg', 'wtf', 'tbh', 'imo', 'btw']
-
-        vague_count = sum(1 for phrase in vague_phrases if phrase in text.lower())
-        informal_count = sum(1 for word in informal_words if word in text.lower())
-
-        # Extract exactly the same 16 features as training
-        features = [
-            word_count,                                                                    # 0
-            len(text),                                                                     # 1
-            len([s for s in text.split('.') if s.strip()]),                              # 2
-            int('```' in text),                                                           # 3
-            int('`' in text and '```' not in text),                                      # 4
-            sum(1 for kw in ['function', 'variable', 'loop', 'return'] if kw in text.lower()), # 5
-            sum(len(w) for w in words) / max(word_count, 1),                             # 6
-            sum(1 for c in text if c in '.,!?;:'),                                       # 7
-            text.count('?'),                                                              # 8
-            text.count('!'),                                                              # 9
-            sum(1 for phrase in ['example', 'for instance', 'such as'] if phrase in text.lower()), # 10
-            sum(1 for word in ['because', 'since', 'therefore'] if word in text.lower()), # 11
-            int(any(lang in text.lower() for lang in ['python', 'java', 'html'])),      # 12
-            int(metadata.get("contains_code", False)),                                    # 13
-            vague_count,                                                                  # 14
-            informal_count                                                                # 15
+    def detect_sophisticated_spam(self, content, features):
+        """Detect sophisticated spam patterns."""
+        words = content.split()
+        if len(words) < 20:
+            return False
+        word_counts = Counter(words)
+        total_words = len(words)
+        for word, count in word_counts.items():
+            if len(word) > 3:
+                word_ratio = count / total_words
+                if word_ratio > 0.15:
+                    remaining_words = [w for w in words if w != word]
+                    if len(set(remaining_words)) < len(remaining_words) * 0.45:
+                        return True
+        sentences = re.split(r'[.!?]+', content)
+        valid_sentences = [s.strip() for s in sentences if len(s.split()) >= 3]
+        if len(valid_sentences) >= 3:
+            similar_structure_count = 0
+            for i in range(len(valid_sentences) - 1):
+                sent1_words = set(valid_sentences[i].split())
+                sent2_words = set(valid_sentences[i + 1].split())
+                if len(sent1_words & sent2_words) > len(sent1_words | sent2_words) * 0.6:
+                    similar_structure_count += 1
+            if similar_structure_count >= len(valid_sentences) * 0.5:
+                return True
+        filler_patterns = [
+            r'\b(binary\s+)+binary\b',
+            r'\b(but\s+)+but\b',
+            r'\b(and\s+)+and\b',
+            r'\b(the\s+)+the\b',
+            r'\b(\w+\s+)\1{2,}'
         ]
+        for pattern in filler_patterns:
+            if re.search(pattern, content):
+                return True
+        if features.get('spam_score', 0) > 1.5:
+            repetition_ratio = features.get('repetition_ratio', 0)
+            semantic_coherence = features.get('semantic_coherence', 0)
+            if repetition_ratio > 0.1 and semantic_coherence < 2:
+                return True
+        return False
 
-        return np.array(features)
+    def detect_valid_dictionary_analogy(self, content, features):
+        """Detect valid dictionary analogies."""
+        content = content.lower()
+        if 'dictionary' not in content and 'flip' not in content:
+            return False
+        dictionary_patterns = [
+            r'looking.*for.*word.*dictionary',
+            r'flip.*middle',
+            r'dictionary.*middle',
+            r'imagine.*dictionary',
+            r'like.*dictionary',
+            r'word.*dictionary.*middle'
+        ]
+        analogy_score = 0
+        for pattern in dictionary_patterns:
+            if re.search(pattern, content):
+                analogy_score += 1
+        educational_indicators = [
+            'imagine', 'like', 'similar', 'analogy', 'example',
+            'works', 'helps', 'that\'s how', 'this is how'
+        ]
+        edu_score = sum(1 for indicator in educational_indicators if indicator in content)
+        if analogy_score >= 1 and edu_score >= 1:
+            repetition_ratio = features.get('repetition_ratio', 0)
+            spam_score = features.get('spam_score', 0)
+            if repetition_ratio < 0.2 and spam_score < 2.5:
+                return True
+        return False
 
-    def _get_ai_reasoning(self, X_combined, confidence: float, is_valid: bool, content: str) -> str:
-        """Get enhanced AI reasoning based on model feature weights and content analysis"""
+    def apply_enhanced_rule_override(self, content: str, prediction: str, features: Dict[str, Any]) -> Tuple[str, str]:
+        """Apply enhanced rule-based overrides."""
+        original_pred = prediction
+        reason = ""
+        content_lower = content.lower()
+        if features.get('is_plagiarized'):
+            prediction = 'invalid'
+            reason = f"Rule override: Plagiarized content - {features.get('plagiarism_reason', '')}"
+        elif features.get('is_excessive_informal_slang') and not features.get('is_technical') and features.get('semantic_coherence', 0) < 5.0:
+            prediction = 'invalid'
+            reason = f"Rule override: Excessive informal slang - {features.get('informal_slang_reason', '')}"
+        elif features.get('is_negative_sentiment') and features.get('word_count', 0) > 50:
+            prediction = 'invalid'
+            reason = f"Rule override: Negative sentiment rant (score={features.get('sentiment_score', 0):.2f})"
+        elif self.detect_binary_search_misconception(content_lower):
+            prediction = 'invalid'
+            reason = "Rule override: Binary search misconception detected"
+        elif self.detect_sophisticated_spam(content_lower, features):
+            prediction = 'invalid'
+            reason = "Rule override: Sophisticated spam pattern detected"
+        elif self.detect_valid_dictionary_analogy(content_lower, features):
+            prediction = 'valid'
+            reason = "Rule override: Valid dictionary analogy detected"
+        elif (features.get('is_meaningless') and
+              features.get('spam_score', 0) > 2.0 and
+              features.get('repetition_ratio', 0) > 0.1):
+            prediction = 'invalid'
+            reason = "Rule override: Strong spam indicators"
+        elif (features.get('semantic_coherence', 0) < 1.5 and
+              features.get('repetition_ratio', 0) > 0.15):
+            prediction = 'invalid'
+            reason = "Rule override: Low coherence with repetition"
+        return prediction, reason
+
+class ActionValidator:
+    def __init__(self, config):
+        """Initialize the ActionValidator with configuration."""
+        self.config = config
+        self.models = {}
+        self.content_validator = EnhancedStudentContentValidator()
+        self._load_models()
+
+    def _load_models(self):
+        """Load AI models from .pkl files specified in config."""
         try:
-            # Get model coefficients (feature weights)
-            coefficients = self.models["classifier"].coef_[0]
-            
-            # Get feature names
-            tfidf_features = self.models["vectorizer"].get_feature_names_out()
-            numeric_features = [
-                'word_count', 'char_count', 'sentence_count', 'has_code_block',
-                'has_inline_code', 'code_keyword_count', 'avg_word_length',
-                'punctuation_count', 'question_marks', 'exclamation_marks',
-                'examples_mentioned', 'explanatory_words', 'mentions_language', 
-                'contains_code', 'vague_count', 'informal_count'
-            ]
-            
-            all_features = list(tfidf_features) + numeric_features
-            
-            # Calculate feature contributions for this specific input
-            feature_values = X_combined.toarray()[0]
-            contributions = feature_values * coefficients
-            
-            # Get top contributing features
-            feature_contributions = list(zip(all_features, contributions))
-            
-            # Additional content analysis for better reasoning
-            word_count = len(content.split())
-            has_repetition = self._detect_repetition(content)
-            
-            if is_valid:
-                # Sort by positive contributions (features that made it valid)
-                top_features = sorted(feature_contributions, key=lambda x: x[1], reverse=True)[:7]
-                positive_features = [f for f, contrib in top_features if contrib > 0]
-                
-                reason_parts = []
-                
-                # Analyze specific positive indicators
-                if any('code' in f or 'algorithm' in f or 'function' in f for f, _ in top_features):
-                    reason_parts.append("contains relevant technical content")
-                if 'examples_mentioned' in [f for f, _ in top_features if f in numeric_features]:
-                    reason_parts.append("provides helpful examples")
-                if 'explanatory_words' in [f for f, _ in top_features if f in numeric_features]:
-                    reason_parts.append("offers clear explanations")
-                if word_count >= self.word_count_threshold:
-                    reason_parts.append("meets minimum length requirements")
-                if 'mentions_language' in [f for f, _ in top_features if f in numeric_features]:
-                    reason_parts.append("discusses specific programming topics")
-                
-                if not reason_parts:
-                    reason_parts.append("demonstrates overall helpfulness patterns")
-                
-                return f"✓ AI validation passed: {' and '.join(reason_parts)} (confidence: {confidence:.2f})"
-                
-            else:
-                # Sort by negative contributions (features that made it invalid)
-                top_features = sorted(feature_contributions, key=lambda x: x[1])[:7]
-                
-                reason_parts = []
-                
-                # Analyze specific negative indicators
-                if has_repetition:
-                    reason_parts.append("contains repetitive content")
-                if word_count < self.word_count_threshold:
-                    reason_parts.append(f"below minimum word count ({word_count} < {self.word_count_threshold})")
-                if 'vague_count' in [f for f, _ in top_features if f in numeric_features]:
-                    reason_parts.append("contains vague or unhelpful phrases")
-                if 'informal_count' in [f for f, _ in top_features if f in numeric_features]:
-                    reason_parts.append("uses overly informal language")
-                
-                if not reason_parts:
-                    reason_parts.append("lacks indicators of helpful content")
-                
-                return f"✗ AI validation failed: {' and '.join(reason_parts)} (confidence: {confidence:.2f})"
-                    
+            for model_name, model_config in self.config.ai_models.items():
+                # Load classifier
+                model_path = Path("app") / "models" / model_config.model_file
+                if not model_path.exists():
+                    logger.error(f"Classifier file not found: {model_path}")
+                    raise FileNotFoundError(f"Classifier file not found: {model_path}")
+                classifier = joblib.load(model_path)
+                logger.info(f"Successfully loaded classifier from: {model_path}")
+
+                # Load vectorizer
+                vectorizer_path = Path("app") / "models" / model_config.vectorizer_file
+                if not vectorizer_path.exists():
+                    logger.error(f"Vectorizer file not found: {vectorizer_path}")
+                    raise FileNotFoundError(f"Vectorizer file not found: {vectorizer_path}")
+                vectorizer = joblib.load(vectorizer_path)
+                logger.info(f"Successfully loaded vectorizer from: {vectorizer_path}")
+
+                # Load feature extractor
+                feature_extractor_path = Path("app") / "models" / model_config.scaler_file
+                if not feature_extractor_path.exists():
+                    logger.error(f"Feature extractor file not found: {feature_extractor_path}")
+                    raise FileNotFoundError(f"Feature extractor file not found: {feature_extractor_path}")
+                feature_extractor = custom_load(feature_extractor_path)
+                logger.info(f"Successfully loaded feature extractor from: {feature_extractor_path}")
+
+                # Store models with threshold
+                self.models[model_name] = {
+                    'classifier': classifier,
+                    'vectorizer': vectorizer,
+                    'feature_extractor': feature_extractor,
+                    'threshold': model_config.threshold
+                }
+            logger.info(f"Loaded models: {list(self.models.keys())}")
         except Exception as e:
-            logger.exception("Error generating AI reasoning")
-            status = " passed" if is_valid else " failed"
-            return f"AI validation {status} (confidence: {confidence:.2f})"
+            logger.error(f"Error loading models: {str(e)}")
+            raise
 
-    def validate_login(self, metadata: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
-        """Validate login action"""
-        return True, " Login validation passed"
-
-    def validate_quiz(self, metadata: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
-        """Validate quiz action with enhanced feedback"""
-        if not self.config.action_types["quiz"].enabled:
-            return False, " Quiz action type is disabled"
-
-        threshold = self.config.action_types["quiz"].validation.threshold
-
-        if threshold and threshold.min_score is not None:
-            score = metadata.get("score", 0)
-            if score < threshold.min_score:
-                return False, f" Score below threshold ({score} < {threshold.min_score})"
-
-        if threshold and threshold.max_time_sec is not None:
-            time_taken = metadata.get("time_taken_sec", 0)
-            if time_taken > threshold.max_time_sec:
-                return False, f"✗ Time exceeded threshold ({time_taken}s > {threshold.max_time_sec}s)"
-
-        return True, " Quiz validation passed"
+    def _get_ai_reasoning(self, content: str, confidence: float, is_valid: bool, prediction: str, features: Dict[str, Any], override_reason: str) -> str:
+        """Generate detailed AI reasoning for validation decision."""
+        try:
+            reasoning_parts = [
+                f"Confidence: {confidence:.3f} ({'High' if confidence > 0.8 else 'Medium' if confidence > 0.6 else 'Low'})",
+                f"Content length: {'Short' if len(content.split()) < 30 else 'Long' if len(content.split()) > 1000 else 'Appropriate'}"
+            ]
+            if override_reason:
+                reasoning_parts.append(override_reason)
+            if features.get('is_excessive_informal_slang'):
+                reasoning_parts.append(f"Excessive informal slang: {features.get('informal_slang_reason', 'N/A')}")
+            if features.get('is_negative_or_off_topic'):
+                reasoning_parts.append("Negative sentiment or off-topic content detected")
+            if features.get('is_plagiarized'):
+                reasoning_parts.append(f"Plagiarized content: {features.get('plagiarism_reason', 'N/A')}")
+            if features.get('is_meaningless'):
+                reasoning_parts.append("Meaningless content detected")
+            reasoning_parts.append(f"Repetition ratio: {features.get('repetition_ratio', 0):.3f}")
+            reasoning_parts.append(f"Semantic coherence: {features.get('semantic_coherence', 0):.1f}")
+            reasoning_parts.append(f"Sentiment score: {features.get('sentiment_score', 0):.2f}")
+            reasoning_parts.append(f"Final prediction: {'Valid' if is_valid else 'Invalid'}")
+            return "; ".join(reasoning_parts)
+        except Exception as e:
+            logger.error(f"Error generating AI reasoning: {str(e)}")
+            return f"Unable to generate reasoning: {str(e)}"
 
     def validate_help_post(self, metadata: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
-        """Enhanced help post validation with comprehensive checks"""
-        if not self.config.action_types["help_post"].enabled:
-            return False, "✗ Help post action type is disabled"
-
-        content = metadata.get("content", "")
-        word_count = metadata.get("word_count", len(content.split()) if content else 0)
-
-        if not content or not content.strip():
-            return False, "✗ Empty content provided"
-
-        if word_count < 3:
-            return False, f"✗ Content too short ({word_count} words)"
-
-        if self._detect_repetition(content):
-            return False, "✗ Repetitive content detected"
-
-        
+        """Validate help post action."""
         try:
-            threshold = self.config.action_types["help_post"].validation.threshold
-            if threshold:
-                min_words = None
-                if hasattr(threshold, 'get') and threshold.get("min_word_count") is not None:
-                    min_words = threshold["min_word_count"]
-                elif hasattr(threshold, 'min_word_count') and threshold.min_word_count is not None:
-                    min_words = threshold.min_word_count
+            help_post_config = self.config.action_types.get('help_post')
+            if not help_post_config or not help_post_config.enabled:
+                return False, "Help post action type not enabled"
+            required_fields = ['content']
+            for field in required_fields:
+                if field not in metadata:
+                    return False, f"Missing required field: {field}"
+            content = metadata.get('content', '')
+            word_count = metadata.get('word_count', len(content.split()))
+            if not content.strip():
+                return False, "Content is empty"
+            validation_config = help_post_config.validation
+            min_word_count = validation_config.threshold.get('min_word_count', 30)
+            max_word_count = validation_config.threshold.get('max_word_count', 1000)
+            if word_count < min_word_count:
+                return False, f"Word count too low: {word_count} (minimum: {min_word_count})"
+            if word_count > max_word_count:
+                return False, f"Word count too high: {word_count} (maximum: {max_word_count})"
+            if validation_config.require_ai:
+                return self._validate_with_ai('help_post', metadata)
+            return True, "Help post validated successfully"
+        except Exception as e:
+            logger.error(f"Error validating help post: {str(e)}")
+            return False, f"Help post validation error: {str(e)}"
 
-                if min_words is not None and word_count < min_words:
-                    return False, f"✗ Word count below threshold ({word_count} < {min_words})"
-        except (AttributeError, KeyError):
-            logger.warning("Could not access threshold config, using default validation")
+    def _validate_with_ai(self, action_type: str, metadata: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
+        """Validate using AI models."""
+        try:
+            if action_type not in self.models:
+                logger.warning(f"No AI model available for action type: {action_type}")
+                return True, f"AI validation skipped - no model for {action_type}"
+            model_info = self.models[action_type]
+            classifier = model_info['classifier']
+            vectorizer = model_info['vectorizer']
+            feature_extractor = model_info['feature_extractor']
+            content = metadata.get('content', '')
+            if not content.strip():
+                return False, "No content available for AI validation"
+            # Preprocess and vectorize
+            processed_content = self.content_validator.preprocess_text(content)
+            tfidf_features = vectorizer.transform([processed_content])
+            # Predict
+            prediction = classifier.predict(tfidf_features)[0]
+            probabilities = classifier.predict_proba(tfidf_features)[0]
+            confidence = np.max(probabilities)
+            threshold = self.config.action_types.get(action_type).validation.threshold.get('min_confidence', model_info['threshold'])
+            # Extract features
+            features = feature_extractor.transform([content])[0]
+            # Apply rule overrides
+            final_prediction, override_reason = self.content_validator.apply_enhanced_rule_override(content, prediction, features)
+            is_valid = final_prediction == 'valid' and confidence >= threshold
+            reasoning = self._get_ai_reasoning(content, confidence, is_valid, final_prediction, features, override_reason)
+            return is_valid, f"AI validation {'passed' if is_valid else 'failed'}: {reasoning}"
+        except Exception as e:
+            logger.error(f"Error in AI validation: {str(e)}")
+            return False, f"AI validation error: {str(e)}"
 
-        if self.config.action_types["help_post"].validation.require_ai:
-            if "classifier" in self.models and "vectorizer" in self.models:
-                try:
-                    X_text = self.models["vectorizer"].transform([content])
-                    X_numeric = self._extract_features(content, metadata)
-
-                    if "scaler" in self.models:
-                        X_numeric_scaled = self.models["scaler"].transform(X_numeric.reshape(1, -1))
-                    else:
-                        X_numeric_scaled = X_numeric.reshape(1, -1)
-                        logger.warning("Using unscaled features - may affect accuracy")
-
-                    X_combined = hstack([X_text, X_numeric_scaled])
-                    prediction = self.models["classifier"].predict(X_combined)[0]
-                    probability = self.models["classifier"].predict_proba(X_combined)[0]
-
-                    confidence = float(max(probability))
-                    prob_valid = float(probability[1])
-                    prob_invalid = float(probability[0])
-                    is_valid = bool(prediction == 1)
-
-                    # Use the higher confidence score for validation
-                    if is_valid:
-                        final_confidence = prob_valid
-                    else:
-                        final_confidence = prob_invalid
-
-                    reason = self._get_ai_reasoning(X_combined, final_confidence, is_valid, content)
-
-                    # Debug logging
-                    logger.info(f"AI Prediction Debug: prediction={prediction}, prob_valid={prob_valid:.4f}, prob_invalid={prob_invalid:.4f}, confidence={final_confidence:.4f}, is_valid={is_valid}")
-
-                    # The model's prediction is final - don't override with confidence threshold
-                    if is_valid:
-                        return True, reason
-                    else:
-                        return False, reason
-
-                except Exception as e:
-                    logger.exception("AI validation failed")
-                    return False, f"✗ AI validation error: {str(e)}"
-            else:
-                logger.warning("AI validation required but models not loaded")
-                if word_count >= self.word_count_threshold:
-                    return True, f"⚠ Skipped AI validation (models not loaded) - passed basic checks"
-                else:
-                    return False, f"✗ Failed basic validation (no AI models available)"
-
-        return True, "✓ Help post validation passed"
-    
     def validate_action(self, action_type: str, metadata: Dict[str, Any]) -> Tuple[bool, Optional[str]]:
-        """Main validation entry point with enhanced error handling"""
+        """Main validation method that routes to specific validators."""
         try:
             if action_type not in self.config.action_types:
-                return False, f"✗ Unsupported action type: {action_type}"
-
-            if action_type == "login":
-                return self.validate_login(metadata)
-            elif action_type == "quiz":
-                return self.validate_quiz(metadata)
-            elif action_type == "help_post":
+                return False, f"Unknown action type: {action_type}"
+            if action_type == 'help_post':
                 return self.validate_help_post(metadata)
-            else:
-                return False, f"✗ No validator implemented for action type: {action_type}"
-                
+            action_config = self.config.action_types[action_type]
+            if not action_config.enabled:
+                return False, f"Action type '{action_type}' not enabled"
+            if action_config.validation.require_ai:
+                return self._validate_with_ai(action_type, metadata)
+            return True, f"Action type '{action_type}' validated successfully"
         except Exception as e:
-            logger.exception(f"Validation error for {action_type}")
-            return False, f"✗ Validation error: {str(e)}"
+            logger.error(f"Error validating action {action_type}: {str(e)}")
+            return False, f"Validation error: {str(e)}"
+
+    def test_model_prediction(self, test_content: str = "This is a test content for validation") -> Dict[str, Any]:
+        """Test method to debug model predictions."""
+        try:
+            if 'help_post' not in self.models:
+                return {"error": "Help post model not available"}
+            model_info = self.models['help_post']
+            classifier = model_info['classifier']
+            vectorizer = model_info['vectorizer']
+            feature_extractor = model_info['feature_extractor']
+            processed_content = self.content_validator.preprocess_text(test_content)
+            tfidf_features = vectorizer.transform([processed_content])[0]
+            prediction = classifier.predict(tfidf_features)[0]
+            probabilities = classifier.predict_proba(tfidf_features)[0]
+            confidence = np.max(probabilities)
+            threshold = self.config.action_types.get('help_post').validation.threshold.get('min_confidence', model_info['threshold'])
+            features = feature_extractor.transform([test_content])[0]
+            # Apply rule overrides
+            final_prediction, override_reason = self.content_validator.apply_enhanced_rule_override(test_content, prediction, features)
+            is_valid = final_prediction == 'valid' and confidence >= threshold
+            result = {
+                "model_type": str(type(classifier)),
+                "test_content": test_content,
+                "prediction": final_prediction,
+                "original_prediction": prediction,
+                "override_reason": override_reason,
+                "prediction_successful": True,
+                "probabilities": probabilities.tolist(),
+                "confidence": float(confidence),
+                "is_valid": is_valid,
+                "features": features,
+                "reasoning": self._get_ai_reasoning(test_content, confidence, is_valid, final_prediction, features, override_reason)
+            }
+            return result
+        except Exception as e:
+            return {"error": str(e), "prediction_successful": False}
 
     def get_validator_info(self) -> Dict[str, Any]:
-        """Get information about the validator configuration"""
-        return {
-            'word_count_threshold': self.word_count_threshold,
-            'repetition_threshold': self.repetition_threshold,
-            'min_confidence': self.min_confidence,
-            'models_loaded': {
-                'classifier': 'classifier' in self.models,
-                'vectorizer': 'vectorizer' in self.models,
-                'scaler': 'scaler' in self.models
-            },
-            'features': [
-                'tfidf_features', 'word_count', 'char_count', 'sentence_count',
-                'code_features', 'quality_indicators', 'repetition_detection',
-                'educational_content', 'language_mentions', 'vague_content_detection',
-                'informal_language_detection'
-            ]
-        }
+        """Get information about the validator and loaded models."""
+        try:
+            model_info = {}
+            for model_name, model_data in self.models.items():
+                model_info[model_name] = {
+                    'threshold': model_data['threshold'],
+                    'loaded': True,
+                    'model_type': str(type(model_data['classifier'])),
+                }
+            action_types_info = {}
+            for action_type, config in self.config.action_types.items():
+                action_types_info += action_type
+                {
+                    'enabled': config.enabled,
+                    'requires_ai': config.validation.require_ai,
+                    'threshold': config.validation.threshold if config.validation.threshold else {},
+                }
+            return {
+                'validator_version': '1.0',
+                'models': model_info,
+                'action_types': action_types_info,
+                'total_valid_models': len(self.models),
+                'timestamp': datetime.utcnow().isoformat(),
+            }
+        except Exception as e:
+            logger.error(f"Error getting validator info: {str(e)}")
+            return {
+                "error": str(e),
+                'validator_version': '1.0',
+                'timestamp': datetime.utcnow().isoformat(),
+            }

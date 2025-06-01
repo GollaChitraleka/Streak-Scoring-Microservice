@@ -1,4 +1,4 @@
-import json
+'''import json
 from pathlib import Path
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
@@ -26,11 +26,13 @@ class ActionTypeConfig:
     validation: ValidationConfig
 
 @dataclass
+@dataclass
 class AIModelConfig:
     model_file: str
+    vectorizer_file: str
+    scaler_file: Optional[str] = None  # add this with default None
     threshold: float = 0.6
-    vectorizer_file: Optional[str] = None
-    scaler_file: Optional[str] = None
+
 
 @dataclass
 class PersistenceConfig:
@@ -45,6 +47,7 @@ class AppConfig:
     action_types: Dict[str, ActionTypeConfig]
     ai_models: Dict[str, AIModelConfig]
     persistence: PersistenceConfig
+    
 
 def load_config(file_path: str) -> AppConfig:
     path = Path(__file__).resolve().parent.parent / file_path
@@ -81,3 +84,4 @@ def load_config(file_path: str) -> AppConfig:
         ai_models=ai_models,
         persistence=persistence
     )
+'''
