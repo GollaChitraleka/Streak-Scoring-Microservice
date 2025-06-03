@@ -4,12 +4,16 @@ import pandas as pd
 from sklearn.base import BaseEstimator, TransformerMixin
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
+import logging
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 # Download VADER lexicon
 try:
     nltk.download('vader_lexicon', quiet=True)
 except Exception as e:
-    print(f"Error downloading VADER lexicon: {e}")
+    logger.error(f"Error downloading VADER lexicon: {e}")
 
 class FeatureExtractor(BaseEstimator, TransformerMixin):
     def __init__(self):
@@ -111,19 +115,15 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
             'lol', 'lmao', 'bro', 'dude', 'man', 'yo', 'yep', 'nah', 'wtf', 'haha',
             'kinda', 'sorta', 'umm', 'idk', 'tbh', 'bruh', 'fr', 'smh', 'rofl', 'btw',
             'chill', 'lit', 'vibe', 'nope', 'yup', 'cuz', 'prolly', 'wassup', 'fam',
-            'easy', 'whatever', 'anyways', 'lame'
+            'easy', 'anyways', 'lame'
         ]
         slang_count = sum(1 for word in words if word in slang_indicators)
         slang_ratio = slang_count / len(words) if len(words) > 0 else 0
-        casual_fillers = ['like', 'basically', 'so', 'you know', 'i mean', 'stuff', 'things', 'actually']
+        casual_fillers = ['like', 'basically', 'you know', 'i mean', 'stuff', 'things', 'actually']
         filler_count = sum(1 for filler in casual_fillers if filler in text_str)
-        educational_terms = [
-            'algorithm', 'binary', 'search', 'sort', 'data structure', 'function',
-            'array', 'complexity', 'stack', 'queue', 'explain', 'example', 'code'
-        ]
-        has_educational_context = sum(1 for term in educational_terms if term in text_str) >= 2
-        is_informal = (slang_ratio > 0.2 or filler_count >= 2 or (slang_count >= 1 and len(words) <= 5)) and not has_educational_context
-        reason = f"Slang ratio={slang_ratio:.3f}, filler_count={filler_count}, educational_context={has_educational_context}"
+        is_informal = slang_ratio > 0.1 or filler_count >= 3 or (slang_count >= 2 and len(words) <= 15)
+        reason = f"Slang ratio={slang_ratio:.3f}, filler_count={filler_count}"
+        logger.debug(f"Slang: text={text[:50]}..., slang_count={slang_count}, filler_count={filler_count}, ratio={slang_ratio:.3f}, is_informal={is_informal}")
         return is_informal, reason
 
     def detect_negative_sentiment(self, text):
@@ -131,7 +131,10 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
             return False, 0.0
         text_str = str(text)
         sentiment_scores = self.sid.polarity_scores(text_str)
-        is_negative = sentiment_scores['compound'] < -0.4 or sentiment_scores['neg'] > 0.3
+        negative_indicators = ['done', 'mess', 'annoying', 'over it', 'ugh', 'whatever', 'don\'t get it', 'frustrated', 'sucks']
+        negative_count = sum(1 for indicator in negative_indicators if indicator in text_str.lower())
+        is_negative = (sentiment_scores['compound'] < -0.1 or sentiment_scores['neg'] > 0.15 or negative_count >= 3)
+        logger.debug(f"Sentiment: text={text[:50]}..., scores={sentiment_scores}, negative_count={negative_count}, is_negative={is_negative}")
         return is_negative, sentiment_scores['compound']
 
     def detect_plagiarized_content(self, text):
@@ -182,14 +185,14 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
         if is_plagiarized:
             return True, plagiarism_reason
         is_negative, sentiment_score = self.detect_negative_sentiment(text)
-        if is_negative and len(words) > 50:
+        if is_negative and len(words) >= 50:
             return True, f"Negative sentiment rant (score: {sentiment_score:.2f})"
         word_counts = Counter(words)
         if len(word_counts) > 0:
             most_common_word, most_common_count = word_counts.most_common(1)[0]
             common_words = {
                 'the', 'is', 'are', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
-                'of', 'with', 'by', 'from', 'up', 'about', 'into', 'through', 'during',
+                'of', 'with', 'by', 'from', 'up', 'about', 'into', 'while', 'during',
                 'before', 'after', 'above', 'below', 'between', 'among', 'this', 'that',
                 'these', 'those', 'i', 'you', 'he', 'she', 'it', 'we', 'they', 'what',
                 'when', 'where', 'why', 'how', 'can', 'will', 'do', 'does', 'have', 'has',
@@ -199,7 +202,7 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
                 most_common_count > len(words) * 0.18 and
                 len(most_common_word) > 3):
                 return True, f"Content dominated by '{most_common_word}' ({most_common_count}/{len(words)})"
-        if self.detect_binary_search_misconception(text_str):
+        if self.detect_binary_search_misconception(text_str)[0]:
             return True, "Contains binary search misconception"
         sentences = re.split(r'[.!?]+', text_str)
         meaningless_sentences = 0
@@ -238,14 +241,14 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
         }
         code_patterns = [
             r'\b(def|function|class|public|private|static|void)\s+\w+\s*\(',
-            r'\b(if|while|for)\s*\(',
+            r'\b(if|while|for)\s+\(',
             r'\{[^}]*\}',
             r'\[[^\]]*\]',
             r'[a-zA-Z_]\w*\s*\(',
             r'#include\s*',
             r'import\s+\w+',
             r'\w+\.\w+\(',
-            r'\w+\s*=\s*\w+'
+            r'\w+\s*=\s*'
         ]
         programming_score = 0
         for language, keywords in programming_keywords.items():
@@ -255,7 +258,7 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
             matches = len(re.findall(pattern, text_str))
             programming_score += matches * 1.0
         if re.search(r'^\s*(def|function|class|public|private)', text_str, re.MULTILINE):
-            programming_score += 2.0
+            programming_score += 1.0
         return programming_score > 2.0, programming_score
 
     def detect_technical_explanation(self, text):
@@ -288,7 +291,7 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
         for phrase in ['help', 'understand', 'learn', 'explain', 'concept', 'programming']:
             if phrase in text_str:
                 explanation_score += 0.5
-        return explanation_score > 2.0, explanation_score
+        return explanation_score > 1.5, explanation_score
 
     def calculate_semantic_coherence_enhanced(self, text):
         if pd.isna(text) or not str(text).strip():
@@ -303,17 +306,17 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
         if is_plagiarized:
             return 0.5
         is_negative, sentiment_score = self.detect_negative_sentiment(text)
-        if is_negative and len(text_str.split()) > 50:
+        if is_negative and len(text_str.split()) >= 50:
             return 0.5
-        if self.detect_binary_search_misconception(text_str):
+        if self.detect_binary_search_misconception(text_str)[0]:
             return 0.5
         score = 0
         sentences = re.split(r'[.!?]+', text_str)
         valid_sentences = [s.strip() for s in sentences if s.strip() and len(s.split()) >= 3]
         if self.detect_programming_content(text)[0]:
-            score += 2
+            score += 1
         if not valid_sentences:
-            return 0
+            return score
         flow_indicators = [
             'because', 'since', 'therefore', 'however', 'moreover', 'furthermore',
             'first', 'second', 'next', 'then', 'finally', 'in conclusion',
@@ -331,7 +334,7 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
             sentences_word_counts = Counter(sentences_words)
             max_sentence_word_freq = max(sentences_word_counts.values())
             if max_sentence_word_freq > len(sentences_words) * 0.15:
-                score -= 3
+                score -= 1
         complete_sentences = 0
         spam_sentences = 0
         for sentence in valid_sentences:
@@ -344,7 +347,7 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
                     continue
                 meaningful_verbs = [
                     'is', 'are', 'was', 'were', 'have', 'has', 'had',
-                    'works', 'helps', 'uses', 'makes', 'allows', 'can', 'will',
+                    'works', 'helps', 'uses', 'makes', 'allows', 'can',
                     'does', 'performs', 'searches', 'finds', 'divides', 'splits',
                     'compares', 'checks', 'looks', 'flips', 'imagine'
                 ]
@@ -353,35 +356,38 @@ class FeatureExtractor(BaseEstimator, TransformerMixin):
         if len(valid_sentences) > 0:
             spam_ratio = spam_sentences / len(valid_sentences)
             if spam_ratio > 0.3:
-                score -= 5
+                score -= 1
             structure_score = (complete_sentences / len(valid_sentences)) * 5
             score += structure_score
         return max(0, score)
 
     def detect_binary_search_misconception(self, content):
-        if 'binary' not in content or 'search' not in content:
-            return False
+        if pd.isna(content) or not content.strip() or 'binary' not in content.lower() or 'search' not in content.lower():
+            return False, ""
+        content = content.lower()
+        # Ensure the content describes a linear search process in the context of binary search
         misconception_patterns = [
-            r'search.*files.*folder.*one\s+by\s+one',
-            r'check.*from.*beginning.*to.*end',
-            r'go.*through.*each.*file',
-            r'look.*at.*every.*item',
-            r'start.*from.*beginning',
-            r'search.*one\s+by\s+one',
-            r'check.*every.*element',
-            r'examine.*each.*one',
-            r'linear.*search.*but.*call.*binary',
-            r'sequential.*search.*binary'
+            r'binary\s+search.*(one\s+by\s+one|each\s+(file|item|element)\s+by\s+\2|check\s+every\s+(file|item|element))',
+            r'binary\s+search.*(from.*beginning.*to.*end|start.*beginning.*until.*end)',
+            r'binary\s+search.*(go\s+through\s+each|look\s+at\s+every\s+(file|item|element))',
+            r'binary\s+search.*(sequential|linear\s+search|in\s+order\s+from\s+start)',
+            r'(describe|call|is).*binary\s+search.*(check\s+all|every\s+(file|item|element)\s+one\s+at\s+a\s+time)'
         ]
         for pattern in misconception_patterns:
             if re.search(pattern, content):
-                return True
-        if 'binary search' in content:
-            linear_indicators = [
-                'one by one', 'beginning to end', 'check every', 'each file',
-                'all files', 'every element', 'sequential', 'in order'
-            ]
-            linear_count = sum(1 for indicator in linear_indicators if indicator in content)
-            if linear_count >= 2:
-                return True
-        return False
+                return True, "Binary search misconception: Describes linear search as binary search"
+        linear_indicators = [
+            'one by one', 'check every file', 'check every item', 'check every element',
+            'beginning to end', 'each file by file', 'each item by item', 'all files one at a time',
+            'every element in order', 'sequential search'
+        ]
+        # Require at least two indicators and explicit mention of "binary search" within 20 words
+        linear_count = sum(1 for indicator in linear_indicators if indicator in content)
+        if linear_count >= 2:
+            words = content.split()
+            for i, word in enumerate(words):
+                if word == 'binary' and i + 1 < len(words) and words[i + 1] == 'search':
+                    context = ' '.join(words[max(0, i - 10):i + 10])
+                    if any(indicator in context for indicator in linear_indicators):
+                        return True, "Binary search misconception: Multiple linear search indicators near binary search"
+        return False, ""
